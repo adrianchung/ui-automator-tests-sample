@@ -17,10 +17,20 @@ public class MenuViewPageObject extends PageObjectBase {
 	private UiObject mStoreButton = new UiObject(new UiSelector().resourceId("com.enflick.android.TextNow:id/store_button"));
 	private UiObject mSettingsButton = new UiObject(new UiSelector().resourceId("com.enflick.android.TextNow:id/settings_button"));
 	
+	/**
+	 * Constructor
+	 * 
+	 * @param device
+	 */
 	public MenuViewPageObject(UiDevice device) {
 		super(device);
 	}
 
+	/**
+	 * Open the home conversation view
+	 * 
+	 * @throws UiObjectNotFoundException
+	 */
 	public void openHome() throws UiObjectNotFoundException {
 		navigateBackToParent();
 		
@@ -28,6 +38,11 @@ public class MenuViewPageObject extends PageObjectBase {
 		mHomeButton.clickAndWaitForNewWindow(Constants.TIMEOUT_IN_MS);
 	}
 	
+	/**
+	 * Open the profile view
+	 * 
+	 * @throws UiObjectNotFoundException
+	 */
 	public void openProfile() throws UiObjectNotFoundException {
 		navigateBackToParent();
 		
@@ -35,6 +50,10 @@ public class MenuViewPageObject extends PageObjectBase {
 		mProfileButton.clickAndWaitForNewWindow(Constants.TIMEOUT_IN_MS);
 	}
 	
+	/**
+	 * Open the settings view
+	 * @throws UiObjectNotFoundException
+	 */
 	public void openSettings() throws UiObjectNotFoundException {
 		navigateBackToParent();
 		
@@ -42,6 +61,11 @@ public class MenuViewPageObject extends PageObjectBase {
 		mSettingsButton.clickAndWaitForNewWindow(Constants.TIMEOUT_IN_MS);
 	}
 	
+	/**
+	 * Open the store view
+	 * 
+	 * @throws UiObjectNotFoundException
+	 */
 	public void openStore() throws UiObjectNotFoundException {
 		navigateBackToParent();
 		
@@ -49,6 +73,12 @@ public class MenuViewPageObject extends PageObjectBase {
 		mStoreButton.clickAndWaitForNewWindow(Constants.TIMEOUT_IN_MS);
 	}
 	
+	/**
+	 * Helper method to navigate backwards in the fragment stack until we are back
+	 * to a parent view that has the menu available
+	 * 
+	 * @throws UiObjectNotFoundException
+	 */
 	private void navigateBackToParent() throws UiObjectNotFoundException {
 		// Reset back to a parent screen where the menu button is available
 		while (!mMenuHomeButton.exists()) {

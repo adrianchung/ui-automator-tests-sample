@@ -14,6 +14,11 @@ import com.android.uiautomator.core.UiObjectNotFoundException;
 abstract class PageObjectBase {
 	private UiDevice mDevice;
 	
+	/**
+	 * Constructor
+	 * 
+	 * @param device
+	 */
 	public PageObjectBase(UiDevice device) {
 		mDevice = device;
 	}
@@ -22,6 +27,14 @@ abstract class PageObjectBase {
 		return mDevice;
 	}
 	
+	/**
+	 * Helper method for inputting text into an EditText field. It will click on the text field,
+	 * type in the given text, and press back again to hide the keyboard
+	 * 
+	 * @param textField UISelector for the text field
+	 * @param text The text to enter into the field
+	 * @throws UiObjectNotFoundException
+	 */
 	protected void enterText(UiObject textField, String text) throws UiObjectNotFoundException {
 		textField.click();
 		textField.setText(text);

@@ -30,6 +30,12 @@ public class MessageViewPageObject extends PageObjectBase {
 		sendMessage(message);
 	}
 	
+	/**
+	 * Send a message in an existing conversation
+	 * 
+	 * @param message
+	 * @throws UiObjectNotFoundException
+	 */
 	public void sendMessage(String message) throws UiObjectNotFoundException {
 		enterText(messageEditTextField, message);
 		
